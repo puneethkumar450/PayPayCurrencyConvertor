@@ -10,6 +10,7 @@ import com.example.paypaycurrencyconvertor.ui.ICurrencyCalculatorListener
 import com.example.paypaycurrencyconvertor.ui.base.BaseViewModel
 import com.example.paypaycurrencyconvertor.utils.AppEnum
 import com.example.paypaycurrencyconvertor.utils.Resource
+import com.example.paypaycurrencyconvertor.utils.StringUtils.isDigitsOnly
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
@@ -142,6 +143,5 @@ class CurrencyCalculatorViewModel @Inject constructor(aRepository: AppRepository
         return false
     }
 
-    private fun String.isDigitsOnly() = all(Char::isDigit) && isNotEmpty()
 }
 
