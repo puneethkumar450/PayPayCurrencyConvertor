@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="currencyCalculatorViewModel"
+            type="com.example.paypaycurrencyconvertor.ui.viewmodel.CurrencyCalculatorViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/converted_currency_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingBottom="@dimen/item_rv_bottom_padding"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:spanCount="3"
+            tools:listitem="@layout/layout_currency_item" />
+
+        <ProgressBar
+            android:id="@+id/fragment_home_parent_clpb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edittext_normal"
+            android:backgroundTint="@color/cardview_shadow_start_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/item_padding"
+            app:visibility="@{currencyCalculatorViewModel.mIsLoading}" />
+
+
+        <RelativeLayout
+            android:id="@+id/currency_amount_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/item_padding"
+            android:background="@drawable/bg_edittext"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/currency_amount_input_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/llSelectedCurrency"
+                android:background="@drawable/bg_edittext_normal"
+                android:focusedByDefault="true"
+                android:layout_marginTop="@dimen/item_padding"
+                android:layout_marginBottom="@dimen/item_padding"
+                android:gravity="start|center"
+                android:hint="@string/enter_amount"
+                android:inputType="numberDecimal"
+                android:maxLength="100"
+                android:padding="@dimen/item_text_padding"
+                android:paddingHorizontal="@dimen/item_text_padding"
+                android:text="@={currencyCalculatorViewModel.mConversionAmountLiveData}"
+                android:textColorHint="@color/lightGrey" >
+
+                <requestFocus/>
+            </androidx.appcompat.widget.AppCompatEditText>
+
+            <LinearLayout
+                android:id="@+id/llSelectedCurrency"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/item_padding"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:id="@+id/tvSelectedCurrency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/usd_default_currency"
+                    android:padding="4dp"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/ic_circle"
+                    android:backgroundTint="@color/colorAccent"
+                    android:contentDescription="@string/app_name" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="min_width">100dp</dimen>
+    <dimen name="item_min_height">100dp</dimen>
+    <dimen name="item_padding">8dp</dimen>
+    <dimen name="item_text_padding">12dp</dimen>
+    <dimen name="item_rv_bottom_padding">84dp</dimen>
+    <dimen name="item_spinner_height">60dp</dimen>
+</resources>

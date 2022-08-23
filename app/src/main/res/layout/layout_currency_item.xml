@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="currencyItemViewModel"
+            type="com.example.paypaycurrencyconvertor.ui.viewmodel.CurrencyItemViewModel" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_min_height"
+        app:cardCornerRadius="@dimen/item_padding"
+        android:layout_margin="@dimen/item_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/item_padding"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/currency_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{currencyItemViewModel.currencyName}"
+                android:gravity="center"
+                style="@style/TextAppearance.AppCompat.Title"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/currency_value_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{currencyItemViewModel.currencyValue}"
+                android:gravity="center"
+                android:paddingEnd="@dimen/item_padding"
+                android:paddingStart="@dimen/item_padding"
+                android:layout_marginTop="4dp"
+                android:maxLines="2"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/lightGrey"
+                app:layout_constraintTop_toBottomOf="@id/currency_name_tv"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/item_padding"
+        android:layout_marginStart="@dimen/item_padding"
+        android:layout_marginTop="@dimen/item_padding"
+        android:layout_marginEnd="@dimen/item_padding"
+        android:layout_marginBottom="@dimen/item_padding"
+        android:padding="@dimen/item_padding"
+        android:textColor="@color/colorAccent"
+        android:text="Select Country" />
+
+    <com.example.paypaycurrencyconvertor.ui.bottomsheet.BottomSheetPicker
+        android:divider="@android:color/transparent"
+        android:id="@+id/lv_country"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/dialogTitle"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/close_bottom_sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/item_text_padding"
+        android:layout_marginTop="@dimen/item_text_padding"
+        android:layout_marginEnd="@dimen/item_text_padding"
+        android:layout_marginBottom="@dimen/item_rv_bottom_padding"
+        android:background="@drawable/bg_edittext_normal"
+        android:padding="@dimen/item_padding"
+        app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+</RelativeLayout>
